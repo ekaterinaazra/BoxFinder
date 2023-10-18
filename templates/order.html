@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}
+  Add Items to Order
+{% endblock %}
+{% block body %}
+<div class="container mt-4">
+  <div class="mb-4">
+    <a class="btn btn-primary" href="/">Back</a>
+  </div>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h2>Create an Order</h2>
+      {% if employee_email %}
+      <div class="alert alert-success text-center" role="alert">
+        Order Number: {{ order_number }}
+      </div>
+      {% endif %}
+      <form method="post" action="/proceed_order" id="add-item-form">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>Length (in)</th>
+              <th>Width (in)</th>
+              <th>Depth (in)</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody id="walmart-goods">
+            <tr>
+              <td><input type="text" name="name[]" class="form-control" placeholder="Clam Chowder" required></td>
+              <td><input type="number" name="length[]" class="form-control" placeholder="5 (in)" required></td>
+              <td><input type="number" name="width[]" class="form-control" placeholder="4 (in)" required></td>
+              <td><input type="number" name="depth[]" class="form-control" placeholder="3 (in)" required></td>
+              <td><input type="number" name="quantity[]" class="form-control" placeholder="10" required></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="text-center">
+          <button type="button" class="btn btn-warning" id="add-item">+</button>
+        </div>
+        <div class="container text-center mt-4">
+          <button type="submit" class="btn btn-primary" id="proceed-button">Proceed</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

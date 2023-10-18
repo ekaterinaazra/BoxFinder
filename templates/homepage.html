@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}
+  Walmart Packaging Home
+{% endblock %}
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img src="static/Walmart_logo.jpg" alt="Walmart Logo">
+      <p class="mt-2 bold-text">Box Finder</p>
+    </a>
+    <div class="ml-auto">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link btn btn-primary text-white" href="/boxes">View all boxes</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container align-items-center">
+
+  <h1>Create an Account</h1>
+<form action="/employees" method="POST">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="text" class="form-control" id="email" name="email" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password" name="password" required>
+  </div>
+  <button type="submit" class="btn btn-primary btn-create-account">Create Account</button>
+</form>
+
+  <h1>Log In</h1>
+  <form action="/login" method="POST">
+    <div class="mb-3">
+      <label for="loginEmail" class="form-label">Email</label>
+      <input type="text" class="form-control" id="loginEmail" name="email" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+    </div>
+    <div class="mb-3">
+      <label for="loginPassword" class="form-label">Password</label>
+      <input type="password" class="form-control" id="loginPassword" name="password" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Log In</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}
+  Common Box Sizes
+{% endblock %}
+{% block body %}
+<div class="container mt-4">
+    <div class="mb-4"> 
+        <a class="btn btn-primary" href="/">Back</a>
+    </div>
+    <h2>Common Box Sizes</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                  <th>Name</th>
+                  <th>Length (in)</th>
+                  <th>Width (in)</th>
+                  <th>Depth (in)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for box in boxes %}
+                <tr>
+                  <td>{{ box }}</td>
+                  <td>{{ boxes[box][0] }}</td>
+                  <td>{{ boxes[box][1] }}</td>
+                  <td>{{ boxes[box][2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

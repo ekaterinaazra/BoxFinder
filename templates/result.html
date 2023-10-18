@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block title %}
+  Results
+{% endblock %}
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="static/Walmart_logo.jpg" alt="Walmart Logo">
+        <p class="mt-2 bold-text">Box Finder</p>
+        <p class="lead">Employee Email: {{ employee_email }}</p>
+        <p class="lead">Order Number: {{ order_number }}</p>
+      </a>
+      <div class="ml-auto">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link btn btn-warning" href="/info" style="margin-right: 10px;">See All Orders</a>
+              </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-primary text-white" href="/">Home</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+<div class="container align-items-center">
+    <h2>Items in the order</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                  <th>Name</th>
+                  <th>Length (in)</th>
+                  <th>Width (in)</th>
+                  <th>Depth (in)</th>
+                  <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for good in goods %}
+                <tr>
+                  <td>{{ good.name }}</td>
+                  <td>{{ good.length }}</td>
+                  <td>{{ good.width }}</td>
+                  <td>{{ good.depth }}</td>
+                  <td>{{ good.quantity }}</td>
+                </tr>
+                {% endfor %}
+                </div>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="container text-center mt-4">
+  <button class="btn btn-primary" id="box-button">Get box</button>
+  <div id="box-message" class="flash-message" style="display: none;">
+      <div class="flash-message-container">
+          <img src="static/Box.jpg" class="left-image">
+          <div class="message">
+              <h3>
+                  You need:
+              </h3>
+              <ul>
+                  <li>{{ data[0] }} Small Box(es)</li>
+                  <li>{{ data[1] }} Medium Box(es)</li>
+                  <li>{{ data[2] }} Large Box(es)</li>
+                  <li>{{ data[3] }} Extra Large Box(es)</li>
+              </ul>
+              <button class="close-button btn btn-primary btn-lg mt-3" id="close-box-button">&times;</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<script >
+    function showBoxMessage() {
+    const boxMessage = document.querySelector('#box-message');
+    const closeBoxButton = document.querySelector('#close-box-button');
+
+    boxMessage.style.display = (boxMessage.style.display === "none") ? "block" : "none";
+    closeBoxButton.addEventListener("click", showBoxMessage);
+}
+document.querySelector('#box-button').addEventListener("click", showBoxMessage);
+
+</script>
+{% endblock %}

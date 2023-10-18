@@ -18,7 +18,7 @@ How to Install:
 1. Set up and activate a Python virtualenv and install all dependencies:
 pip install -r requirements.txt
 2. Create a new database in PostgreSQL named orders:
-createdb orders;
+createdb orders
 3. Create the tables in your database:
 python -i model.py
 4. While in interactive mode, create tables:
@@ -54,6 +54,3 @@ Screenshots:
 <img width="1280" alt="Screenshot 2023-10-17 at 6 16 02 PM" src="https://github.com/ekaterinaazra/BoxFinder/assets/62628675/f7f2a767-c8cb-40db-a446-b9637729b964">
 
 <img width="1280" alt="Screenshot 2023-10-17 at 6 16 06 PM" src="https://github.com/ekaterinaazra/BoxFinder/assets/62628675/cd12a7a6-8b1e-4274-930f-624430c59eb9">
-
-
-
